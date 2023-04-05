@@ -1,2 +1,31 @@
-export default () =>
-  <div> hello
+"civet solid"
+
+{ Component, For } from solid-js
+
+{ timezones, Tz } from ./timezones.civet
+
+chunk := <T>(array: T[], n: number) =>
+  a := array.slice()
+
+  while a.length > 0
+    a.splice 0, n
+
+Timezone: Component<{tz: Tz, onClick?: =>}> := (props) =>
+  <div
+    style={
+      position: "absolute"
+      "clip-path": `polygon(${chunk props.tz.2.split(","), 2 |> .map(.join " ") |> .join()})`
+      background: "grey"
+      top: 0
+      left: 0
+      bottom: 0
+      right: 0
+    }
+  >
+
+export default (=>
+  <div style={position: "relative"}>
+    <For each={Object.entries timezones}>
+      ([, tz]) => <Timezone {tz}>
+
+  ) as Component

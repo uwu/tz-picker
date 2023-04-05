@@ -2,8 +2,11 @@
   "name": "@uwu/tz-picker",
   "version": "1.0.0",
   "description": "A simple and user friendly time zone picker",
+  "main": "dist/index.civet.jsx",
+  "module": "dist/index.civet.jsx",
+  "types": "dist/index.civet.d.ts",
   "scripts": {
-    "prepare": "civet -c src/*.civet -o dist/"
+    "prepare": "civet -c src/*.civet -o civetdist/ && cp src/tz.json civetdist && tsc"
   },
   "license": "Unlicense",
   "devDependencies": {

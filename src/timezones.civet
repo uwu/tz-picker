@@ -1,0 +1,5 @@
+export type Tz = [string, string, string] // [pin loc, zone name, points]
+
+timezonesRaw from "./tz.json"
+
+export timezones: Record<string, Tz> := timezonesRaw as Record<string, any>
