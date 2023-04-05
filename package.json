@@ -1,0 +1,17 @@
+{
+  "name": "@uwu/tz-picker",
+  "version": "1.0.0",
+  "description": "A simple and user friendly time zone picker",
+  "scripts": {
+    "prepare": "civet -c src/*.civet -o dist/"
+  },
+  "license": "Unlicense",
+  "devDependencies": {
+    "@danielx/civet": "^0.5.93",
+    "solid-js": "^1.7.2",
+    "typescript": "^4.9.5"
+  },
+  "peerDependencies": {
+    "solid-js": "^1.7.2"
+  }
+}
