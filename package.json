@@ -1,23 +1,23 @@
 {
-  "name": "@uwu/tz-picker",
-  "version": "1.0.0",
-  "description": "A simple and user friendly time zone picker",
-  "author": "Yellowsink",
-  "homepage": "https://github.com/uwu/tz-picker",
-  "repository": "github:uwu/tz-picker",
-  "main": "dist/index.civet.jsx",
-  "module": "dist/index.civet.jsx",
-  "types": "dist/index.civet.d.ts",
-  "scripts": {
-    "prepare": "rm -rf dist civetdist && civet -c src/*.civet -o civetdist/ && cp src/tz.json civetdist && tsc -p tsconfig_build.json"
-  },
-  "license": "Unlicense",
-  "devDependencies": {
-    "@danielx/civet": "^0.5.93",
-    "solid-js": "^1.7.2",
-    "typescript": "^4.9.5"
-  },
-  "peerDependencies": {
-    "solid-js": "^1.7.2"
-  }
+	"name": "@uwu/tz-picker",
+	"version": "1.0.0",
+	"description": "A simple and user friendly time zone picker",
+	"author": "Yellowsink",
+	"homepage": "https://github.com/uwu/tz-picker",
+	"repository": "github:uwu/tz-picker",
+	"main": "dist/index.civet.jsx",
+	"module": "dist/index.civet.jsx",
+	"types": "dist/index.civet.d.ts",
+	"scripts": {
+		"prepare": "rm -rf dist civetdist && civet -c src/*.civet -o civetdist/ && cp src/tz.json civetdist && tsc -p tsconfig_build.json"
+	},
+	"license": "Unlicense",
+	"devDependencies": {
+		"@danielx/civet": "^0.5.93",
+		"solid-js": "^1.7.2",
+		"typescript": "^4.9.5"
+	},
+	"peerDependencies": {
+		"solid-js": "^1.7.2"
+	}
 }

@@ -7,45 +7,45 @@
 export {timezones as data, Tz} from ./timezones.civet
 
 Timezone: Component<{
-            tz: Tz
-            onClick?: =>
-            onHov?: =>
-            active: boolean
-            col: string
-          }>
-  := (props) =>
-  <For each=props.tz.1>
-    (poly) => <polygon
-      classList={active: props.active}
-      points=poly.1
-      fill=props.col
-      onClick={=> props.onClick?()}
-      onMouseEnter={=> props.onHov?()}
-    >
+						tz: Tz
+						onClick?: =>
+						onHov?: =>
+						active: boolean
+						col: string
+					}>
+	:= (props) =>
+	<For each=props.tz.1>
+		(poly) => <polygon
+			classList={active: props.active}
+			points=poly.1
+			fill=props.col
+			onClick={=> props.onClick?()}
+			onMouseEnter={=> props.onHov?()}
+		>
 
 type Props =
-  filter?: (name: string) => boolean
-  onChoose?: (name: string) =>
-  active?: string
-  col?: string
-  colHov?: string
-  colActive?: string
+	filter?: (name: string) => boolean
+	onChoose?: (name: string) =>
+	active?: string
+	col?: string
+	colHov?: string
+	colActive?: string
 
 export default ((props) =>
-  id := Math.random().toString(36).split(".").1
+	id := Math.random().toString(36).split(".").1
 
-  <svg style={position: "relative", width: "100%"} viewBox="0 0 500 250" #`tz-map-${id}`>
+	<svg style={position: "relative", width: "100%"} viewBox="0 0 500 250" #`tz-map-${id}`>
 
-    <style>
-      {`#tz-map-${id} polygon:hover{fill:${props.colHov ?? '#AAA'}} #tz-map-${id} polygon.active{fill:${props.colActive ?? '#666'}}`}
+		<style>
+			{`#tz-map-${id} polygon:hover{fill:${props.colHov ?? '#AAA'}} #tz-map-${id} polygon.active{fill:${props.colActive ?? '#666'}}`}
 
-    <For each={Object.entries timezones |> .filter ([name]) => props.filter ? props.filter name : true}>
-      ([name, tz]) =>
-        <Timezone
-          active={name === props.active}
-          {tz}
-          onClick={=> props.onChoose? name}
-          col={props.col ?? "#EEE"}
-        >
+		<For each={Object.entries timezones |> .filter ([name]) => props.filter ? props.filter name : true}>
+			([name, tz]) =>
+				<Timezone
+					active={name === props.active}
+					{tz}
+					onClick={=> props.onChoose? name}
+					col={props.col ?? "#EEE"}
+				>
 
-  ) as Component<Props>
+	) as Component<Props>
