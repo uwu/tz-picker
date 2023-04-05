@@ -1,14 +1,15 @@
 {
+  "include": ["civetdist/*"],
   "compilerOptions": {
     "strict": true,
     "target": "ESNext",
     "module": "ESNext",
-    "lib": ["ESNext", "DOM"],
     "moduleResolution": "node",
     "allowSyntheticDefaultImports": true,
     "jsx": "preserve",
     "jsxImportSource": "solid-js",
     "resolveJsonModule": true,
-    "noEmit": true
+    "outDir": "dist",
+    "declaration": true
   }
 }

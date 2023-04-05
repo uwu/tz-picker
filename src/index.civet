@@ -4,28 +4,27 @@
 
 { timezones, Tz } from ./timezones.civet
 
-chunk := <T>(array: T[], n: number) =>
-  a := array.slice()
+export {timezones as data, Tz} from ./timezones.civet
 
-  while a.length > 0
-    a.splice 0, n
+Timezone: Component<{tz: Tz, onClick?: =>, onHov?: =>, active: boolean}> := (props) =>
+  <For each=props.tz.1>
+    (poly) => <polygon
+      classList={active: props.active}
+      points={poly.1}
+      fill="#EEE"
+      onClick={=> props.onClick?()}
+      onMouseEnter={=> props.onHov?()}
+    >
 
-Timezone: Component<{tz: Tz, onClick?: =>}> := (props) =>
-  <div
-    style={
-      position: "absolute"
-      "clip-path": `polygon(${chunk props.tz.2.split(","), 2 |> .map(.join " ") |> .join()})`
-      background: "grey"
-      top: 0
-      left: 0
-      bottom: 0
-      right: 0
-    }
-  >
+export default ((props) =>
+  id := Math.random().toString(36).split(".").1
 
-export default (=>
-  <div style={position: "relative"}>
-    <For each={Object.entries timezones}>
-      ([, tz]) => <Timezone {tz}>
+  <svg style={position: "relative", width: "100%"} viewBox="0 0 500 250" #`tz-map-${id}`>
 
-  ) as Component
+    <style>
+      {`#tz-map-${id} polygon:hover{fill:#AAA} #tz-map-${id} polygon.active{fill:#666}`}
+
+    <For each={Object.entries timezones |> .filter ([name]) => props.filter ? props.filter name : true}>
+      ([name, tz]) => <Timezone active={name === props.active} {tz} onClick={=> props.onChoose? name}>
+
+  ) as Component<{ filter?: (name: string) => boolean, onChoose?: (name: string) =>, active?: string}>

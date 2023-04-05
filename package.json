@@ -6,7 +6,7 @@
   "module": "dist/index.civet.jsx",
   "types": "dist/index.civet.d.ts",
   "scripts": {
-    "prepare": "civet -c src/*.civet -o civetdist/ && cp src/tz.json civetdist && tsc"
+    "prepare": "civet -c src/*.civet -o civetdist/ && cp src/tz.json civetdist && tsc -p tsconfig_build.json"
   },
   "license": "Unlicense",
   "devDependencies": {
