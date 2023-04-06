@@ -34,7 +34,7 @@ type Props =
 export default ((props) =>
 	id := Math.random().toString(36).split(".").1
 
-	<svg style={position: "relative", width: "100%"} viewBox="0 0 500 250" #`tz-map-${id}`>
+	<svg style={position: "relative", width: "100%"} viewBox="0 0 500 210" #`tz-map-${id}`>
 
 		<style>
 			{`#tz-map-${id} polygon:hover{fill:${props.colHov ?? '#AAA'}} #tz-map-${id} polygon.active{fill:${props.colActive ?? '#666'}}`}
